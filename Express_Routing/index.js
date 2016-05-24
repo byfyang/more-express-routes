@@ -40,7 +40,7 @@ var correct_number = 7;
 
 app.get("/pickanumber/:number", function(req,res){
 	var number = req.params.number;
-	if (number ===correct_number){
+	if (number === correct_number){
 		res.send("Nailed it!");
 	}else if(number > correct_number){
 		res.send("Too High!");
@@ -53,21 +53,9 @@ app.get("/pickanumber/:number", function(req,res){
 	// 	res.send("You picked " + number + "!");
 	// }
 });
+///////////////////////////////////////////////////////
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//Please refer to server.js and cities.ejs file in parent quick example folder.
 
 //start the server
 app.listen(3000, function(){

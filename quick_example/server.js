@@ -1,5 +1,3 @@
-
-
 var express = require('express');
 var app = express();
 
@@ -10,10 +8,17 @@ var bodyParser = require('body-parser');
 var parseUrlencoded = bodyParser.urlencoded({extended: false});
 
 // store for cities in memory (as long as server is running)
-var cities = [];
+var cities = [
+	{name: "Taipei", Country: "Taiwan"},
+	{name: "Paris", Country: "France"},
+	{name: "Berlin", Country: "Germany"},
+	{name: "Beijing", Country: "China"},
+];
+
 
 app.set('view engine', 'ejs');
 
+//
 app.get('/cities', function(req, res) {
     res.render(process.cwd() + '/cities', {cities: cities});
 });
@@ -28,6 +33,7 @@ app.post('/cities', parseUrlencoded, function (request, response) {
     // passing local variables to be used in EJS template
   response.render('cities', { cities: cities});
 });
+
 
 app.listen(3000, function() {
 	console.log("There's free food on port 3000");
